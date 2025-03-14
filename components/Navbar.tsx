@@ -10,11 +10,13 @@ function Navbar() {
 
   // Close the menu when clicking outside
   useEffect(() => {
+    // Only run in the browser, not during server-side rendering
     const handleOutsideClick = (event: MouseEvent) => {
       if (!document.getElementById("mobile-menu")?.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
+    
     if (isOpen) document.addEventListener("click", handleOutsideClick);
     return () => document.removeEventListener("click", handleOutsideClick);
   }, [isOpen]);
