@@ -2,7 +2,7 @@ export const personalData = {
     name: "Hemanth Varma",
     profile: '/pic.jpg',
     designation: "Frontend Developer",
-    description: "My name is Hemanth Varma. I am a professional and enthusiastic programmer in my daily life. I am a quick learner with a self-learning attitude. I love to learn and explore new technologies and am passionate about problem-solving. I love almost all the stacks of web application development and love to make the web more open to the world. My core skill is based on JavaScript and I love to do most of the things using JavaScript. I am available for any kind of job opportunity that suits my skills and interests.",
+    description: "My self Hemanth Varma, a passionate Frontend Developer skilled in React.js, Next.js, JavaScript, Tailwind CSS, and RESTful APIs. I specialize in building modern, responsive, and user-friendly web applications, ensuring seamless performance and intuitive user experiences.With a strong focus on UI/UX, I transform designs into interactive, high-performance interfaces while maintaining clean, maintainable code and optimizing for mobile responsiveness and cross-browser compatibility.My problem-solving mindset and continuous learning approach drive me to stay ahead in the ever-evolving world of web development.",
     email: 'mudunuruhamanth@gmail.com',
     phone: '7382020254',
     github: 'https://github.com/Hemanthvarma24',

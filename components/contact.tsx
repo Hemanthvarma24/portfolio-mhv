@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Mail, Github, Linkedin } from "lucide-react";
 
-const ContactSection = () => {
+const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="py-20 md:py-32">
       <motion.div
@@ -43,7 +43,14 @@ const ContactSection = () => {
   );
 };
 
-const ContactItem = ({ href, icon, title, description }) => {
+type ContactItemProps = {
+  href: string;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+};
+
+const ContactItem: React.FC<ContactItemProps> = ({ href, icon, title, description }) => {
   return (
     <motion.a
       href={href}
