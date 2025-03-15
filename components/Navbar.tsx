@@ -1,27 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   // Close the menu when clicking outside
   useEffect(() => {
-    // Only run in the browser, not during server-side rendering
-    if (typeof window === "undefined") return;
-    
+    if (!isOpen) return;
+
     const handleOutsideClick = (event: MouseEvent) => {
-      const mobileMenu = document.getElementById("mobile-menu");
-      if (mobileMenu && !mobileMenu.contains(event.target as Node)) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
 
-    if (isOpen) document.addEventListener("click", handleOutsideClick);
-    return () => document.removeEventListener("click", handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [isOpen]);
 
   return (
@@ -66,7 +65,7 @@ function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            id="mobile-menu"
+            ref={menuRef}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
