@@ -3,7 +3,6 @@ import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
 import lottieFile from '@/app/assets/lottie/study.json';
 import AnimationLottie from "@/components/helper/animation-lottie";
-import GlowCard from "@/components/helper/glow-card";
 import section from "@/app/assets/svg/hero.svg";
 import blur from "@/app/assets/svg/blur-23.svg";
 
@@ -41,7 +40,10 @@ function Education() {
           <div>
             <div className="flex flex-col gap-6">
               {educations.map((education) => (
-                <GlowCard key={education.id} identifier={`education-${education.id}`}>
+                <div 
+                  key={education.id}
+                  className="relative rounded-lg overflow-hidden border-2 border-[#2a2649] transition-all duration-300 hover:scale-105 hover:border-[#2a2649] hover:shadow-lg hover:shadow-gray-50 bg-gray/60 backdrop-blur-sm"
+                >
                   <div className="p-4 relative text-white">
                     <Image
                       src={blur}
@@ -54,16 +56,16 @@ function Education() {
                       <p className="text-xs md:text-sm text-[#16f2b3]">{education.duration}</p>
                     </div>
                     <div className="flex items-center gap-4 md:gap-6 px-2 md:px-4 py-4">
-                      <div className="text-violet-500 transition-transform duration-300 hover:scale-110">
+                      <div className="text-violet-500 transition-transform duration-300 group-hover:scale-110 hover:text-[#16f2b3]">
                         <BsPersonWorkspace size={32} />
                       </div>
                       <div>
-                        <p className="text-sm md:text-lg font-medium uppercase mb-1">{education.title}</p>
+                        <p className="text-sm md:text-lg font-medium uppercase mb-1 transition-colors duration-300 hover:text-[#16f2b3]">{education.title}</p>
                         <p className="text-xs md:text-sm">{education.institution}</p>
                       </div>
                     </div>
                   </div>
-                </GlowCard>
+                </div>
               ))}
             </div>
           </div>

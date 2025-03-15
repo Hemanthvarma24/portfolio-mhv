@@ -5,7 +5,6 @@ import Image from "next/image";
 import { BsPersonWorkspace } from "react-icons/bs";
 import experience from "@/app/assets/lottie/code.json";
 import AnimationLottie from "@/components/helper/animation-lottie";
-import GlowCard from "@/components/helper/glow-card";
 import section from "@/app/assets/svg/hero.svg";
 
 function Experience() {
@@ -37,7 +36,10 @@ function Experience() {
         <div>
           <div className="flex flex-col gap-4">
             {experiences.map((experience) => (
-              <GlowCard key={experience.id} identifier={`experience-${experience.id}`}>
+              <div 
+                key={experience.id}
+                className="relative rounded-lg overflow-hidden border-2 border-[#2a2649] transition-all duration-300 hover:scale-105 hover:border-[#2a2649] hover:shadow-lg hover:shadow-gray-50 bg-gray/60 backdrop-blur-sm"
+              >
                 <div className="p-4 relative">
                   <Image
                     src={section || "/placeholder.svg"}
@@ -50,16 +52,16 @@ function Experience() {
                     <p className="text-xs sm:text-sm text-[#16f2b3]">{experience.duration}</p>
                   </div>
                   <div className="flex flex-col sm:flex-row items-center gap-x-6 px-3 py-4">
-                    <div className="text-violet-500 transition-all duration-300 hover:scale-125 mb-3 sm:mb-0">
+                    <div className="text-violet-500 transition-all duration-300 hover:scale-125 hover:text-[#16f2b3] mb-3 sm:mb-0">
                       <BsPersonWorkspace size={32} />
                     </div>
-                    <div className="text-center sm:text-left">
-                      <p className="text-sm sm:text-lg font-medium uppercase mb-1">{experience.title}</p>
+                    <div className="text-center sm:text-left text-white">
+                      <p className="text-sm sm:text-lg font-medium uppercase mb-1 transition-colors duration-300 hover:text-[#16f2b3]">{experience.title}</p>
                       <p className="text-xs sm:text-base">{experience.company}</p>
                     </div>
                   </div>
                 </div>
-              </GlowCard>
+              </div>
             ))}
           </div>
         </div>
